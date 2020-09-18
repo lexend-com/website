@@ -114,7 +114,7 @@ const TeamHeadshots = ({ children }) => {
       <Headshot
         name="Dr. Bonnie Shaver-Troup"
         title=""
-        src="/static/images/bonnie.jpeg"
+        src="static/images/bonnie.jpeg"
         transition={spring}
         initial={{ y: 0, rotate: -2, scale: 0.99 }}
         whileHover={{ y: -10, rotate: -4, scale: 1 }}
