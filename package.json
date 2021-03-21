@@ -13,7 +13,7 @@
     "start": "next start"
   },
   "keywords": [],
-  "author": "micah rich",
+  "author": "Robert James Gabriel",
   "license": "MIT",
   "dependencies": {
     "@emotion/core": "^10.0.10",
