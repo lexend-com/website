@@ -103,37 +103,6 @@ export const Button = styled("button")`
   }
 `;
 
-
-
-export const Link = styled("a")`
-  -webkit-appearance: none;
-  font-family: "Lexend", Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  cursor: pointer;
-  appearance: none;
-  border: none;
-  color: #fff !important;
-  text-decoration: none;
-  border-radius: 3px;
-  padding: 0.618em 1em;
-
-
-  display: block;
-  width: fit-content;
-  transition: all 300ms ease-in;
-  outline: none;
-  min-width: 70px;
-  background: ${props => (props.started ? "white" : "red")};
-  color: ${props => (props.started ? "black" : "white")};
-  @media (max-width: 1020px) {
-    width: 100%;
-    margin-top: 0.392rem;
-  }
-  margin: 3rem 2rem 1rem;
-`;
-
-
 export const Section = styled("section")`
   padding: 1rem;
   max-width: 1440px;
@@ -186,16 +155,6 @@ export const Section = styled("section")`
     @media (max-width: 960px) {
       font-size: 1.8rem;
       max-width: 100%;
-    }
-  }
-  h4 {
-  
-    font-size: 2.1rem;
-    max-width: 100%;
-    margin: 3rem 1rem 1rem;
-    @media (max-width: 960px) {
-      font-size: 1.8rem;
-  
     }
   }
   h5 {
@@ -343,97 +302,6 @@ const QuoteContainer = styled("div")`
   }
 `;
 
-
-
-const ExtensionContainer = styled("div")`
-  margin: 0.618rem 1.618rem;
-  flex: 1 1 45%;
-  max-width: 100%;
-  position: relative;
-  &:nth-of-type(1) {
-    .image {
-      order: 0;
-    }
-  }
-  blockquote {
-    box-shadow: 0.392rem 0.618rem 1rem rgba(0, 0, 0, 0.12);
-    display: flex;
-    flex-direction: row;
-    margin-top: 0;
-    max-width: 760px;
-    background: white;
-    padding: 0;
-    margin: 4rem auto 1rem;
-    position: relative;
-    border: 0.618rem solid red;
-    p {
-      flex: 1 1 auto;
-      font-size: 1rem;
-      line-height: 1.618;
-      margin: 3rem 1rem 1rem;
-    }
-    .image {
-      order: 2;
-      display: block;
-      width: 100%;
-      min-width: 200px;
-      max-width: 530px;
-      background: url(${props => props.background}) no-repeat center center;
-      background-size: cover;
-      img {
-        display: none;
-      }
-      @media (max-width: 960px) {
-        background: none;
-        max-width: 100%;
-        order: 1 !important;
-        img {
-          display: block;
-          width: 100%;
-        }
-      }
-    }
-    h6 {
-      max-width: 100%;
-      margin: 0 1rem 3rem;
-      font-variation-settings: "LXND" 20;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-    &:before {
-      font-weight: normal;
-   
-      font-size: 9.6rem;
-      position: absolute;
-      top: -4.618rem;
-      left: 1.618rem;
-      color: black;
-    }
-    &:after {
-      font-weight: normal;
-    
-      font-size: 9.6rem;
-      position: absolute;
-      bottom: -8.618rem;
-      right: 1.618rem;
-      color: black;
-    }
-    @media (max-width: 1220px) {
-      max-width: 100%;
-      left: 0;
-      left: 0;
-    }
-    @media (max-width: 640px) {
-      display: block;
-      background: none !important;
-      padding: 0 !important;
-      .image {
-        max-width: 100%;
-      }
-    }
-  }
-`;
-
 export const Intro = styled("section")`
   background: red;
   padding: 20vh 10vw;
@@ -473,22 +341,3 @@ export const Quote = ({ source, children, background, ...props }) => (
     </blockquote>
   </QuoteContainer>
 );
-
-
-
-export const Extension = ({ header, details, children, background, ...props }) => (
-  <ExtensionContainer background={background} {...props}>
-    <blockquote>
- 
-      <div>
-        <h4>{header}</h4>
-       <p> {details}</p>
-       
-<Link role="link" target="_blank" href="https://chrome.google.com/webstore/detail/lexend-font-for-chrome/dephbjebdflpbhnhnebainombgimhdgc?hl=en">
-Download today
-</Link>
-      </div>
-    </blockquote>
-  </ExtensionContainer>
-);
-
