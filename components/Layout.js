@@ -89,17 +89,25 @@ const global = css`
   p > a,
   h6 > a {
     color: red;
-    font-variation-settings: "LXND" 80;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+
+
     text-decoration: none;
-    font-size: 0.618rem !important;
+
     &:before {
-      content: "⌁";
-      margin: 0 0.192rem;
-      font-size: 140%;
+    
     }
   }
+
+  p > a:hover,
+  h6 > a:hover {
+
+    text-decoration: underline;
+
+    &:before {
+    
+    }
+  }
+
   p {
     max-width: 700px;
     color: rgba(0, 0, 0, 0.76);

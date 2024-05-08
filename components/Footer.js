@@ -13,9 +13,7 @@ const Footer = styled("footer")`
     font-size: 0.718rem;
     margin: 0 0.392rem 0;
     padding: 0;
-    a {
-      font-size: 0.8em;
-    }
+
   }
   svg {
     position: relative;
