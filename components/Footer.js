@@ -29,12 +29,8 @@ export default () => {
   return (
     <Footer>
       <p>
-        For general questions & contact, email{" "}
+        For questions & contact, email{" "}
         <a href="mailto:info@lexend.com">info@lexend.com</a>. 
-        <br/>
-        For inquiries
-        regarding technology & typography, please contact{" "}
-        <a href="mailto:tech@lexend.com">tech@lexend.com</a>
       </p>
     </Footer>
   );
