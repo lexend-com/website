@@ -35,6 +35,6 @@
     "react-variable-fonts": "^1.2.2"
   },
   "devDependencies": {
-    "gh-pages": "^2.0.1"
+    "gh-pages": "^5.0.0"
   }
 }
