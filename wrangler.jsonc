@@ -1,0 +1,12 @@
+{
+  // Cloudflare Workers config for serving the static Next.js export in ./out.
+  // Used by `npx wrangler deploy` (and `npx wrangler versions upload` for previews).
+  "name": "website",
+  "compatibility_date": "2026-06-16",
+  "assets": {
+    // The Next.js static export output directory (`npm run build` -> output: 'export').
+    "directory": "./out",
+    // Serve out/404.html for unmatched paths (this is a static site, not an SPA).
+    "not_found_handling": "404-page"
+  }
+}
