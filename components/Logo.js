@@ -47,6 +47,7 @@ export default () => {
     <Logo>
       <motion.a
         href="#download"
+        aria-label="Lexend"
         ref={hoverRef}
         initial="hidden"
         animate={hovering ? "visible" : "hidden"}
@@ -56,6 +57,7 @@ export default () => {
           <Span
             letter={letter}
             key={`${letter}-${index}`}
+            aria-hidden="true"
             custom={letter === "E"}
             variants={items}
             transition={spring}

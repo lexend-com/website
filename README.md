@@ -13,46 +13,40 @@ There's a lot of fun but not-too-complicated tech here:
 
 ### 🏃‍♂️ Getting Up & Running
 
-> Make sure you've got [Node](https://nodejs.org/en/) installed, cuz we usin' JavaScript. I prefer [yarn](https://yarnpkg.com/en/) to install dependencies, but [npm](https://www.npmjs.com/get-npm) works, too. You just need one or the other — the commands are the same, switch `yarn` with `npm` if that's what you've got.
+> Make sure you've got a recent [Node](https://nodejs.org/en/) (18+) installed. These examples use `npm`, but `yarn`/`pnpm` work too.
 
-The website is ultimately generated & committed with special requirements to make it work with Github Pages, so the you can think of the `website` branch as the source code for the site, and the `gh-pages` branch as minified distribution code — you won't ever really need to touch the `gh-pages` branch manually.
-
-1. Checkout the `website` branch & install dependencies so you can run locally:
+1. Install dependencies:
 
 ```bash
-git checkout website
-yarn install
+npm install
 ```
 
 2. Run locally:
 
 ```bash
-yarn dev
+npm run dev      # http://localhost:3000
 ```
 
-2. To make changes, create a new branch based off the `website` branch, make your changes, and push. You can make a pull request on Github, which if accepted will get merged into the `website` branch.
-3. Once a pull request is merged, you'll have to pull changes from the website branch down to your local machine in order to generate & deploy to the `gh-pages` branch.
+3. Build the static site (output is written to `./out`):
 
 ```bash
-git pull --all
-git checkout website
-yarn deploy
+npm run build
 ```
 
-The deploy command simplifies the gh-pages deploy process using the lovely [gh-pages](https://github.com/tschaub/gh-pages) library, which is included in the development dependencies when you `yarn install` and uses `git` behind the scenes.
+### 🚀 Deployment
 
-It will do all the work for you of generating the final site code (`yarn predeploy` is run automatically behind the scenes when you run `yarn deploy`) & pushing it to the correct branch (which is what `yarn deploy` does).
+The site is a fully static export (Next.js [`output: 'export'`](https://nextjs.org/docs/app/guides/static-exports)). Pushing to `main` triggers [`.github/workflows/build.yml`](.github/workflows/build.yml), which builds `./out` and publishes it to the `gh-pages` branch automatically — you don't need to run anything by hand.
 
-Github Pages sometimes takes a minute or two to clear the cache on Github's end after deploying, but you won't ever need to do anything beyond running `yarn deploy` locally when you have the `website` branch up-to-date to get your changes live.
+To deploy manually if you ever need to: `npm run build && npm run deploy`.
 
-#### 👨🏻‍🚒 Gotchas to Watch Out For in Future Development
+> **Moving to Cloudflare Pages?** Use **Build command:** `npm run build`, **Build output directory:** `out`. No special Node flags are required anymore. Cloudflare handles the custom domain, so the `CNAME` / `.nojekyll` files (kept in `public/` for GitHub Pages) become irrelevant there.
 
-###### Deployment
+#### 👨🏻‍🚒 Notes for Future Development
 
-One gotcha (which you might notice in `package.json` on #master and shouldn't have to worry about if you use as-is), is that we have to pass the `-t` argument, which is shortcode for _including dotfiles_ — gh-pages ignores folders that start with an `_` if you don't include a `.nojekyll` file, and we're making sure to include that shnaz in the `predeploy` command that gets automatically run when you hit `yarn deploy`.
+###### Static files
 
-###### Static Files
+Non-dynamic assets (fonts, images, favicons) live in [`public/static`](public/static). Anything in `public/` is served from the site root, so `public/static/fonts/lexendgx.woff2` is available at `/static/fonts/lexendgx.woff2`. The site is served from the domain root (`www.lexend.com`), so relative `static/...` URLs resolve correctly — no asset-prefix juggling needed.
 
-The `/static` folder is an important part of Next.js, and where we store all our non-dynamic files like fonts, images, etc. Because gh-pages is running in a subdirectory (`lexend-com.github.io/lexend` instead of just `lexend-com.github.io/website` or `lexend.com`), we have to change the URLs for static files to match whatever directory it's living in.
+###### The MDX homepage
 
-You'll notice all the static files are absolute URLs, just to make it simple. If you change where this lives, you'll want to do a find & replace to update those static files. There aren't a lot.
+The entire page is [`pages/index.mdx`](pages/index.mdx) — markdown with React components mixed in. Components are imported at the top of the file and rendered inline; the `export default` at the bottom is the page layout wrapper.

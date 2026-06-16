@@ -1,4 +1,3 @@
-import { useSpring, useTrail, animated, config } from "react-spring";
 import useOnScreen from "../lib/useOnScreen";
 import { useRef } from "react";
 import styled from "@emotion/styled";

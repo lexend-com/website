@@ -2,9 +2,8 @@ import { useContext } from 'react'
 import TypeChoicesContext from '../lib/useTypeChoices'
 import { useState, useEffect } from 'react'
 import ms from 'ms'
-import parseMs from 'parse-ms'
 import prettyMs from 'pretty-ms'
-import styled, { css } from '@emotion/styled'
+import styled from '@emotion/styled'
 import Markdown from 'markdown-to-jsx';
 
 const Highlighted = styled('strong')`

@@ -1,4 +1,4 @@
-import { css, Global } from "@emotion/core";
+import { css, Global } from "@emotion/react";
 import Head from "next/head";
 import Nav from "./Nav";
 import Footer from "./Footer";
@@ -257,7 +257,7 @@ export default ({ children }) => {
       <Nav>
         <Logo />
       </Nav>
-      <div className="content">{children}</div>
+      <main className="content">{children}</main>
       <Footer />
     </>
   );

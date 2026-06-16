@@ -74,7 +74,7 @@ const Tester = ({ weight, lxnd }) => {
             value={axis.LXND}
             onChange={({ target }) => setAxis({ LXND: target.value })}
           />
-          <label htmlFor="lxnd-axis">Variable Font Settings for CSS</label>
+          <label>Variable Font Settings for CSS</label>
           <pre>
             <code>{exampleCSS}</code>
           </pre>
@@ -140,9 +140,9 @@ const H1 = styled("h1")`
 `;
 
 const Title = ({ children, ...props }) => (
-  <H1>
+  <H1 aria-label={children}>
     {children.split("").map((child, i) => (
-      <span key={`${child}-${i}`} {...props}>
+      <span key={`${child}-${i}`} aria-hidden="true" {...props}>
         {child}
       </span>
     ))}

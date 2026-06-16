@@ -1,11 +1,5 @@
 import styled from "@emotion/styled";
-import {
-  useSpring,
-  useTransition,
-  useChain,
-  animated,
-  config
-} from "react-spring";
+import { useSpring, animated } from "react-spring";
 import useOnScreen from "../lib/useOnScreen";
 import { useRef, useState } from "react";
 
@@ -39,7 +33,7 @@ export default ({ children }) => {
     <animated.span
       ref={ref}
       style={{
-        fontVariationSettings: animation.lxnd.interpolate(
+        fontVariationSettings: animation.lxnd.to(
           x => `'LXND' ${x.toFixed()}`
         )
       }}

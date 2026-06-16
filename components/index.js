@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { jsx, css, keyframes } from "@emotion/core";
+import { css, keyframes } from "@emotion/react";
 
 const fadeIn = keyframes`
   from {
@@ -44,7 +44,7 @@ export const Flex = styled("section")`
   }
 `;
 
-export const Right = styled("main")`
+export const Right = styled("section")`
   margin: 1rem auto;
   padding: 0 1rem;
   max-width: ${props => props.width || "720px"};
@@ -64,7 +64,7 @@ export const Right = styled("main")`
   }
 `;
 
-export const Left = styled("main")`
+export const Left = styled("section")`
   margin: 2.618rem auto;
   padding: 0 1rem;
   max-width: ${props => props.width || "720px"};
@@ -332,7 +332,7 @@ export const Quote = ({ source, children, background, ...props }) => (
   <QuoteContainer background={background} {...props}>
     <blockquote>
       <div className="image">
-        <img src={background} />
+        <img src={background} alt={`Portrait accompanying ${source}'s testimonial`} />
       </div>
       <div>
         {children}

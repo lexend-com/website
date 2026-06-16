@@ -1,5 +1,4 @@
 import styled from '@emotion/styled'
-import { jsx, css } from '@emotion/core'
 
 
 const RangeSlider = styled('input')`

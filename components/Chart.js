@@ -114,8 +114,7 @@ const BarChart = () => {
     labelSkipHeight={12}
     labelTextColor={{ from: "color", modifiers: [["darker", 0]] }}
     animate={true}
-    motionStiffness={90}
-    motionDamping={15}
+    motionConfig="gentle"
   />
   </>
 )

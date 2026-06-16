@@ -28,8 +28,9 @@ export default () => {
     <Footer>
       <p>
         For questions & contact, email{" "}
-        <a href="mailto:info@lexend.com">info@lexend.com</a>. 
+        <a href="mailto:info@lexend.com">info@lexend.com</a>.
       </p>
+      <p>&copy; {new Date().getFullYear()} Lexend. All rights reserved.</p>
     </Footer>
   );
 };

@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { useSpring, useTransition, useChain, animated, config } from 'react-spring'
+import { useSpring, animated } from 'react-spring'
 import useOnScreen from '../lib/useOnScreen'
 import { useRef, useState } from 'react'
 
@@ -36,12 +36,12 @@ export default () => {
   return (
     <Container>
       <Kashida ref={ref} style={{
-        fontVariationSettings: animation.lxnd.interpolate(x => `'LXND' ${x.toFixed()}`)
+        fontVariationSettings: animation.lxnd.to(x => `'LXND' ${x.toFixed()}`)
       }}>
         a
       </Kashida>
       <pre>
-        <animated.code>{animation.lxnd.interpolate(x => `h1, p { font-variation-settings: 'LXND' ${x.toFixed()}; }`)}</animated.code>
+        <animated.code>{animation.lxnd.to(x => `h1, p { font-variation-settings: 'LXND' ${x.toFixed()}; }`)}</animated.code>
       </pre>
       <h6>An illustration of potential for using this concept for Arabic typography</h6>
     </Container>

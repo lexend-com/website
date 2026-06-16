@@ -20,12 +20,12 @@ const Logo = styled("img")`
 
 const LogoList = () => (
   <List>
-    <Logo src="static/images/logos/adobe.svg" />
-    <Logo src="static/images/logos/stanford.svg" />
-    <Logo src="static/images/logos/google.svg" />
-    <Logo src="static/images/logos/apple.svg" />
-    <Logo src="static/images/logos/microsoft.svg" />
-    <Logo src="static/images/logos/hp.svg" />
+    <Logo src="static/images/logos/adobe.svg" alt="Adobe" />
+    <Logo src="static/images/logos/stanford.svg" alt="Stanford" />
+    <Logo src="static/images/logos/google.svg" alt="Google" />
+    <Logo src="static/images/logos/apple.svg" alt="Apple" />
+    <Logo src="static/images/logos/microsoft.svg" alt="Microsoft" />
+    <Logo src="static/images/logos/hp.svg" alt="HP" />
   </List>
 );
 export default LogoList;

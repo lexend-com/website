@@ -112,6 +112,8 @@ const TeamHeadshots = ({ children }) => {
   return (
     <List>
       <Headshot
+        role="img"
+        aria-label="Photo of Dr. Bonnie Shaver-Troup, founder of Lexend"
         name="Dr. Bonnie Shaver-Troup"
         title=""
         src="static/images/bonnie.jpeg"

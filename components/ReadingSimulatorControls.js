@@ -14,17 +14,18 @@ const ReadingSimulatorControls = ({ family, changeFamily, text, setText, disable
           Avg WPM ({wpm})
         </label>
         <RangeSlider min="50" max="400" step="50" value={wpm}
+          aria-label={`Average reading speed in words per minute (currently ${wpm})`}
           onChange={({ target }) => setWPM(target.value)}
           onMouseDown={off}
           onMouseUp={on}
           />
       </WPMBar>
-      <Select key="texts" disabled={disabled.includes('texts')} onChange={changeText} value={text}>
+      <Select key="texts" aria-label="Select reading passage" disabled={disabled.includes('texts')} onChange={changeText} value={text}>
         {
           texts.map((_, i) => <option key={`text-${i}`} value={i}>Text #{i}</option>)
         }
       </Select>
-      <Select key="family" onChange={changeFamily} disabled={disabled.includes('family')}
+      <Select key="family" aria-label="Select font family" onChange={changeFamily} disabled={disabled.includes('family')}
       value={family}>
         <option value="Times New Roman">Times New Roman</option>
         <option value="Lexend">Lexend</option>

@@ -1,11 +1,20 @@
-const withMDX = require("@zeit/next-mdx")({
+const withMDX = require("@next/mdx")({
   extension: /\.mdx?$/
 });
 
-module.exports = withMDX({
-  exportPathMap: async function (defaultPathMap) {
-    return defaultPathMap;
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  // Produce a fully static site in ./out (replaces the old `next export`).
+  output: "export",
+  pageExtensions: ["js", "jsx", "mdx"],
+  // Let Next's SWC compiler handle Emotion (replaces babel-plugin-emotion).
+  compiler: {
+    emotion: true
   },
-  pageExtensions: ["js", "jsx", "mdx"]
-  // assetPrefix: process.env.NODE_ENV === "production" ? "/lexend" : ""
-});
+  // Static export can't use the Image Optimization server.
+  images: {
+    unoptimized: true
+  }
+};
+
+module.exports = withMDX(nextConfig);
